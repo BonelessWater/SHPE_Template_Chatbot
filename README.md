@@ -19,12 +19,7 @@
 
 ## Setup Python Virtual Environment
 
-1. Navigate to the `backend` directory:
-   ```sh
-   cd backend
-   ```
-
-2. Set up a virtual environment (optional but recommended):
+1. Set up a virtual environment (optional but recommended):
    ```sh
    python -m venv venv
    source venv/bin/activate  # For Linux/macOS
@@ -58,14 +53,9 @@
 
 ## Running the Flask App
 
-1. Navigate to the `backend` directory (if not already there):
+1. Run the Flask development server:
    ```sh
-   cd backend
-   ```
-
-2. Run the Flask development server:
-   ```sh
-   flask run
+   python app.py
    ```
    The Flask backend should now be running at [http://localhost:5000](http://localhost:5000).
 
@@ -85,7 +75,7 @@
   ```sh
   pip install flask-cors
   ```
-  Add the following to `backend/app.py`:
+  Add the following to `app.py`:
   ```python
   from flask_cors import CORS
   CORS(app)

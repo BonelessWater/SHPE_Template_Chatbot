@@ -7,6 +7,7 @@ from prompt import prompt
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+# i.e The route is https://localhost:5000/api/greet
 @app.route('/api/greet', methods=['POST'])
 def greet():
     pass
@@ -24,8 +25,10 @@ def response(topic):
     response = client.chat.completions.create(
     model="gpt-4o-mini",
     messages=[
-        # Testing messages
-        {"role": "system", "content": prompt},
+        # Sets the mood for how to respond to user propmt
+        {"role": "system", "content": prompt}, 
+
+        # Takes the topic from the user and passes it as a prompt to chatgpt
         {"role": "user", "content": f"Tell me everything you know about this topic: {topic}" }
     ]
     )
@@ -34,4 +37,4 @@ def response(topic):
     return response.choices[0].message.content
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True) # Runs on port 5000 be default
+    app.run(port=5000, debug=True) # Runs on port 5000 by default
